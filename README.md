@@ -4,6 +4,6 @@
 - React
 <p align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=git,html,css,js,python,fastapi,mongodb" />
+    <img src="https://skillicons.dev/icons?i=git,html,css,js,react,python,fastapi,mongodb" />
   </a>
 </p>
