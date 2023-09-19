@@ -1,0 +1,4 @@
+# this .gitignore file will be send to github but not the file which are mention below.
+
+# Ignore all __pycache__ directories and their contents
+__pycache__/
