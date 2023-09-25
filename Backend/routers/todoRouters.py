@@ -15,7 +15,7 @@ async def getAllTodos():
     # now we need to serialize so that we can send as response.
     serializeData = myTodosSerializer(myTodos)  # it will send a  list of serialize dictionary
     #     since todos hences myTodosSerializer USED
-    return {"TodoList": serializeData}
+    return {"TodoList": serializeData} # so it will send response to client as list of dictionary object.
 
 
 # retrieve single todo w.r.t id
@@ -26,7 +26,7 @@ async def getTodo(title: str):
     print(mytodo)  # get record whose id is matching wth provided id
     response = myTodoSerializer(mytodo)
     #     since only single todo hences myTodoSerializer USED
-    return {"Response": response}
+    return {"Response": response} # it will send response to client as a dictionary(in js it called object) object and key will be Response.<key of todo list> => can get id,title ,desc  .
 
 
 # retrieve single todo w.r.t id
@@ -79,7 +79,7 @@ async def updateTodo(title: str, todo: todoModel):  # we need id and body (which
 async def deleteTodo(title:str):
     query = {"title": title}
     res = myTestCollection.find_one_and_delete(query)
-    return {"status":"todo deleted" , "deleted todo" : myTodoSerializer(res)}
+    return {"status":"todo deleted" , "deleted Todo" : myTodoSerializer(res)}
 
 
 '''
