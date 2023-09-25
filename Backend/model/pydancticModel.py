@@ -9,4 +9,4 @@ class todoModel(BaseModel):
     title: str
     description: str
     completed: bool
-    time: datetime = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
+    time: Optional[datetime] = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")

@@ -1,9 +1,17 @@
+from dotenv import load_dotenv
+import os
 from pymongo import MongoClient
 
-MONGODB_URL = "mongodb_ConnectionString"
+dotenv_path = "config/.env"  # this path is a rltive pathe with respect to working direcotry(mainFile) and our working directory is index.py
 
-client = MongoClient(MONGODB_URL)
-db = client.myTodoDB
+# Load environment variables from the specified path
+load_dotenv(dotenv_path)
+
+# Access the MongoDB Atlas URI
+mongoDbUri = os.environ.get("MONGODB_URI")
+
+client = MongoClient(mongoDbUri)
+db = client.myTodoDB # myTodoDB is the database Name.
 myTestCollection = db["test"]  # collection_name , here test is table/collection name
 myTestCollection2 = db["test1"]  # collection_name , here test1 is table/collection name
 
