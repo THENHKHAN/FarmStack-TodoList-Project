@@ -1,5 +1,5 @@
 import React from 'react'
-import './App.css'
+import AddTask from './components/AddTask'
 
 function App() {
 
@@ -7,9 +7,9 @@ function App() {
     <>
       
 
-      <h1>Todo-List:  You can add your task list...</h1>
+     
       
-    
+    <AddTask />
     </>
   )
 }

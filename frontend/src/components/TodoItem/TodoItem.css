@@ -1,0 +1,38 @@
+.todo-item{
+    min-width: 3px;
+    background-color: #fff;
+    padding: 16px 25px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-top: 30px;
+    transition: all 0.3s;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+.todo-item:hover{
+    transform: scale(1.03);
+}
+.todo-title{
+    flex: 1;
+    font-size: 22px;
+    color: rgb(100, 97, 110);
+    cursor: pointer;
+}
+.todo-btns{
+    display: flex;
+    gap: 15px;   
+}
+.todo-item svg{
+    width: 40px;
+    height: 30px;
+    cursor: pointer;
+}
+.todo-item .edit_btn{
+    fill: rgb(7, 163, 7);
+
+}
+
+.todo-item .delete_btn{
+    fill: red;
+}
