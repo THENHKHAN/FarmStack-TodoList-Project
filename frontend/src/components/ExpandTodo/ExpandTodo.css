@@ -1,0 +1,24 @@
+.expanded-todo{
+    padding: 60px 30px 30px 30px;
+    background-color: #fff;
+    max-width: 680px;
+    position: relative;
+    border-radius: 8px;
+}
+.expanded-todo p{
+    padding: 20px;
+    border-radius: 8px;
+    background-color: rgb(237, 236, 241);
+    margin-bottom: 20px;
+    font-size: 19px;
+}
+.expanded-todo label{
+    display: block;
+    font-size: 23px;
+    margin-bottom: 10px;
+    margin-left: 2px;
+}
+
+.expanded-todo img{
+    right: 25px;
+}
