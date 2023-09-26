@@ -67,7 +67,7 @@ async def updateTodo(title: str, todo: todoModel):  # we need id and body (which
     update_operation = {"$set": todo.dict()}  # converting again to dict
     # Use the find_one_and_update method to find and update the document
     updated_document = myTestCollection.find_one_and_update(query, update_operation, return_document=True)
-
+                                    # return_document=True is used so that response will be the updated doc and not the older one.
     if updated_document:
         response = myTodoSerializer(updated_document)
         return {"message": "Todo updated successfully", "updated_todo": response}

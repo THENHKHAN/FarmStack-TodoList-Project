@@ -9,7 +9,7 @@
 
 def myTodoSerializer(todo) -> dict:
     return {
-            # the left key is of python and rhs: it will be stored with the same name(in mongodb)
+            # the left key is of python and rhs are name of that data will store in db: it will be stored with the same name(in mongodb)
             "id": str(todo["_id"]),
             "title": str(todo["title"]),
             "description": str(todo["description"]),
