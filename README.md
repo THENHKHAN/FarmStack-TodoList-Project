@@ -7,3 +7,7 @@
     <img src="https://skillicons.dev/icons?i=git,html,css,js,react,python,fastapi,mongodb" />
   </a>
 </p>
+
+### feature added tille now
+- See data from backed to fronted
+- Delete data on fontend

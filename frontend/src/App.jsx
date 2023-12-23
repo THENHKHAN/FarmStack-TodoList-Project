@@ -5,10 +5,7 @@ function App() {
 
   return (
     <>
-      
-
-     
-      
+        
     <AddTask />
     </>
   )
