@@ -43,7 +43,7 @@ function AddTask () {
    return ( 
 
     <>
-        <div class="container">      
+        <div class="container" >      
             <h1>Reorganize your life. Make a todo</h1>
             <button className="btn" onClick = {() => setModalActive(true)}>Add Todo</button>
         </div>
@@ -51,7 +51,7 @@ function AddTask () {
         {
           todoData.map( ( todoObj )=>{
            return(
-            <TodoItem  title={todoObj.title} description ={todoObj.description} />
+            <TodoItem  todoObj={todoObj} setTodoData={setTodoData} />
               )   // return end   
              }  )   // map end
              

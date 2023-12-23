@@ -11,11 +11,13 @@ body{
   justify-content: center;
   background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
   font-family: 'Poppins', sans-serif;
+  padding: 0 40px;
 }
 
 h1{
   font-size: 5rem;
   color: white;
+  text-align: center;
 }
 
 .btn{

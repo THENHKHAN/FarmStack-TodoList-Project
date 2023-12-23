@@ -2,12 +2,37 @@ import React, { useEffect, useState } from 'react'
 import "./TodoItem.css"
 import ExpandTodo from '../ExpandTodo/ExpandTodo'
 import AddTaskForm from '../AddTaskForm/AddTaskForm'
+import axios from 'axios'
 
-const TodoItem = ({title,description}) => {
+const TodoItem = (props) => {
 
     const [todoExpand, setTodoExpand] = useState(false)
     const [editTodo, setEditTodo] = useState(false)
+    const title = props.todoObj.title
+    // const [delTodo, setDelTodo] = useState(false)
+    const delApi = `http://127.0.0.1:8000/api/${title}`
 
+    const deleteHandler =(title)=>{
+        console.log("hello del");
+        console.log (title);
+        axios.delete(delApi)
+        .then((res) => {
+            console.log(res.data)
+            // alert("Todo deleted")
+        })   // .then callback end
+        .then(()=>{
+             // to get todo after deletion
+            axios.get("http://127.0.0.1:8000/api/" ).then((response)=>{
+                console.log("TODO DELETED AND FETCHING THE NEW TODO LIST");
+                props.setTodoData(response.data.TodoList)    
+            })
+        })// then callback end
+
+   
+   
+         .catch((err)=> console.log("There is some problem in deleting data.."))
+        
+}  // deleteHandler end
 
 
   return (
@@ -16,7 +41,7 @@ const TodoItem = ({title,description}) => {
         <div className="todo-item">
             {/* to expand the title by clicking on the title */}
             {/* <p className="todo-title" onClick={() => setTodoExpand(true)}>Kal Noorul ke 20 thappad marne hain</p> */}
-            <p className="todo-title" onClick={() => setTodoExpand(true)}>{title}</p>
+            <p className="todo-title" onClick={() => setTodoExpand(true)}>{props.todoObj.title}</p>
             <div className="todo-btns">
 
                     <div className='edit_btn' onClick = {() => setEditTodo(true)}>
@@ -26,7 +51,7 @@ const TodoItem = ({title,description}) => {
                             </svg>
                     </div>
             {/* delete btn */}
-                    <div className='delete_btn' onClick = {()=>"delete"}>
+                    <div className='delete_btn' onClick = {()=> deleteHandler(props.todoObj.title)}>
                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24">
                                 <path d="M 10 2 L 9 3 L 5 3 C 4.448 3 4 3.448 4 4 C 4 4.552 4.448 5 5 5 L 7 5 L 17 5 L 19 5 C 19.552 5 20 4.552 20 4 C 20 3.448 19.552 3 19 3 L 15 3 L 14 2 L 10 2 z M 5 7 L 5 20 C 5 21.105 5.895 22 7 22 L 17 22 C 18.105 22 19 21.105 19 20 L 19 7 L 5 7 z"></path>
                             </svg>
@@ -36,7 +61,7 @@ const TodoItem = ({title,description}) => {
         {todoExpand && 
         
             <div className="modal">
-                <ExpandTodo title={title} description = {description} setTodoExpand = {setTodoExpand}/>
+                <ExpandTodo title={props.todoObj.title} description = {props.todoObj.description} setTodoExpand = {setTodoExpand}/>
             </div>
         }
         {editTodo && 
