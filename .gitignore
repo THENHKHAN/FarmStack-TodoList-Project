@@ -2,5 +2,7 @@
 # Ignore all __pycache__ directories and their contents
 __pycache__/
 .env
+.idea/
 .git
 .idea
+
