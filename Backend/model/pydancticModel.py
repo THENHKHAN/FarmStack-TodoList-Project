@@ -8,5 +8,5 @@ from datetime import datetime
 class todoModel(BaseModel):
     title: str
     description: str
-    completed: bool
+    completed: Optional[bool] = False
     time: Optional[datetime] = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
