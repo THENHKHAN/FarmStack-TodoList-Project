@@ -6,15 +6,16 @@ import axios from 'axios'
 
 const TodoItem = (props) => {
 
-    const [todoExpand, setTodoExpand] = useState(false)
+    const [todoExpand, setTodoExpand] = useState(false) // when user click on task so it will expand
     const [editTodo, setEditTodo] = useState(false)
     const title = props.todoObj.title
     // const [delTodo, setDelTodo] = useState(false)
     const delApi = `http://127.0.0.1:8000/api/${title}`
 
     const deleteHandler =(title)=>{
-        console.log("hello del");
-        console.log (title);
+        console.log("task that wwe want to delete of title: ", title);
+        
+        // calling api based on title
         axios.delete(delApi)
         .then((res) => {
             console.log(res.data)
@@ -23,13 +24,13 @@ const TodoItem = (props) => {
         .then(()=>{
              // to get todo after deletion
             axios.get("http://127.0.0.1:8000/api/" ).then((response)=>{
-                console.log("TODO DELETED AND FETCHING THE NEW TODO LIST");
-                props.setTodoData(response.data.TodoList)    
+                console.log(" Remaining task after Deleted ");
+                props.setTodoData(response.data.TodoList)  
+                console.log(response.data.TodoList)  
             })
         })// then callback end
 
-   
-   
+     
          .catch((err)=> console.log("There is some problem in deleting data.."))
         
 }  // deleteHandler end
@@ -37,7 +38,7 @@ const TodoItem = (props) => {
 
   return (
     <>
-   
+   {/* to show todos  */}
         <div className="todo-item">
             {/* to expand the title by clicking on the title */}
             {/* <p className="todo-title" onClick={() => setTodoExpand(true)}>Kal Noorul ke 20 thappad marne hain</p> */}

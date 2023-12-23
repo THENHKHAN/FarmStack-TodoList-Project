@@ -37,7 +37,7 @@ async def createTodo(todo: todoModel):  # fastapi automatically deserialize the 
     # print(todoId.inserted_id)
     print(todo.title)
     if todoId:
-        return {"message": "Todo created successfully", "title":item_dict["title"], "Desc" : item_dict["description"] }
+        return {"message": "Todo created successfully", "title":item_dict["title"], "description" : item_dict["description"] }
         # return {"message": "Todo created successfully", "_id": str(todoId.inserted_id)}
     else:
         return {"error": "Failed to create note"}
