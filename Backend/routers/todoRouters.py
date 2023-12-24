@@ -30,7 +30,7 @@ async def getTodo(title: str):
 
 
 # retrieve single todo w.r.t id
-@todoApiRouter.post("/api/todo")  # Read the body of the request as JSON.
+@todoApiRouter.post("/api/todo", status_code=201)  # Read the body of the request as JSON.
 async def createTodo(todo: todoModel):  # fastapi automatically deserialize the body request based on model
     item_dict = todo.dict()  # we have to convert it into dictionary to insert into mongodb
     todoId = myTestCollection.insert_one(item_dict)  # since mongodb store in this format
@@ -44,7 +44,7 @@ async def createTodo(todo: todoModel):  # fastapi automatically deserialize the 
 
 
 # retrieve single todo w.r.t id
-@todoApiRouter.post("/api/todos")
+@todoApiRouter.post("/api/todos",  status_code=201)
 async def createTodos(todos: List[todoModel]):
     todos = [todo.dict() for todo in
              todos]  # it will give list of todos i.e.we are making it so that we can insert into mongo
