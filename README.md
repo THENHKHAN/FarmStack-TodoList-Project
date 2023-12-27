@@ -10,4 +10,5 @@
 
 ### feature added tille now
 - See data from backed to fronted
-- Delete data on fontend
+- Delete data from fontend
+- Add Todo From frontend
